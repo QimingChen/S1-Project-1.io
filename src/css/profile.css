@@ -1,0 +1,84 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Muli", sans-serif;
+  background-color: hsl(43, 65%, 86%);
+}
+
+#nav-bar {
+  height: 100px;
+}
+
+#icon {
+  top: 20px;
+  text-align: center;
+}
+
+#search {
+  top: 20px;
+}
+
+#search-input {
+  border-radius: 5px;
+}
+
+#form-logined {
+  top: 20px;
+  text-align: center;
+  display: inline;
+}
+
+button#logined-username {
+  background-color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+button#search-submit {
+  background-color: black;
+  border-radius: 20px;
+  color: wheat;
+}
+
+button#search-submit:hover {
+  background-color: green;
+  border-radius: 20px;
+  color: white;
+}
+
+div#profile-form {
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  text-align: center;
+  font-size: 20px;
+}
+
+button#profile-edit-button {
+  float: right;
+  position: relative;
+  top: 50px;
+  right: 150px;
+  background-color: wheat;
+  border-radius: 40px;
+  color: white;
+}
+button#profile-edit-button:hover {
+  color: black;
+}
+
+div#err-row {
+  position: relative;
+  top: 20%;
+  width: 100%;
+}
+p#err-msg {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  color: red;
+}

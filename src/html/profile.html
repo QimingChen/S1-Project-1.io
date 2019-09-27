@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet" />
+    <!-- customized style-->
+    <link rel="stylesheet" type="text/css" href="../css/profile.css" />
+    <title>Profile Page</title>
+  </head>
+  <body class="container">
+    <div class="row" id="nav-bar">
+      <div class="col" id="icon">icon</div>
+      <div class="col" id="search">
+        <input id="search-input" placeholder="...search" />
+        <button id="search-submit">search</button>
+      </div>
+      <div class="col" id="form-to-login">
+        <input placeholder="username" />
+        <input placeholder="password" />
+        <button id="login">LOGIN</button>
+        <a href="#"> register </a>
+      </div>
+      <div class="col" id="form-logined">
+        <button id="logined-username" onclick="location.href='./profile.html'" type="button">username</button>
+      </div>
+    </div>
+    <div clss="row" id="err-row">
+      <p id="err-msg"> error </p>
+    </div>
+    <div clss="row" id="profile-form">
+      <div id="profile-display">
+        <table style="width:100%">
+          <tr>
+            <th>Username:</th>
+            <td id=profile-username>profile-username</td>
+          </tr>
+          <tr>
+              <th>Additional Email:</th>
+              <td><input type="text" id="profile-email" placeholder="additional email"></td>
+            </tr>
+            <tr>
+              <th>Mobile:</th>
+              <td><input type="text" id="profile-mobile" placeholder="mobile"></td>
+            </tr>
+            <tr>
+              <th>Address:</th>
+              <td><input type="text" id="profile-address" placeholder="address"></td>
+            </tr>
+          </tr>
+        </table>
+
+        <button id="profile-edit-button">save</button>
+    </div>
+  </body>
+  <script src="../javascript/thesi-api.js"></script>
+  <script src="../javascript/profile.js"></script>
+</html>
