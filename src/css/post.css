@@ -1,0 +1,196 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Muli", sans-serif;
+  background-color: hsl(43, 65%, 86%);
+}
+
+#nav-bar {
+  height: 100px;
+}
+
+#icon {
+  top: 20px;
+  text-align: center;
+}
+
+#search {
+  top: 20px;
+}
+
+#search-input {
+  border-radius: 5px;
+}
+
+#form-logined {
+  top: 20px;
+  text-align: center;
+  display: inline;
+}
+
+button#logined-username{
+  background-color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+button#logined-username:hover{
+  background-color: black;
+  color:white;
+}
+
+button#search-submit {
+  background-color: black;
+  border-radius: 20px;
+  color: wheat;
+}
+
+button#search-submit:hover {
+  background-color: green;
+  border-radius: 20px;
+  color: white;
+}
+
+button#post-switcher-view-posts,
+button#post-switcher-create {
+  width: 100%;
+  background-color: black;
+  border-radius: 20px;
+  color: wheat;
+  font-size: 30px;
+}
+button#post-switcher-view-posts:hover,
+button#post-switcher-create:hover {
+  background-color: white;
+}
+
+input#post-title {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+}
+
+textarea#post-content {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+button#post-submit {
+  float: right;
+  border-radius: 20px;
+  width: 75px;
+}
+button#post-submit:hover {
+  background-color: black;
+  color: white;
+}
+
+div#post-view {
+  background-color: white;
+  border-radius: 40px;
+  padding: 40px;
+}
+
+div#list-post {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: wheat;
+  background-color: white;
+  padding: 10px;
+}
+
+p#list-post-content {
+  text-align: center;
+}
+
+p#list-post-meta {
+  text-align: right;
+}
+
+div#post-view-comments {
+  border-radius: 20px;
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+p#post-view-title {
+  font-size: 50px;
+  text-align: left;
+}
+
+p#post-view-content {
+  font-size: 30px;
+  text-align: center;
+}
+
+p#post-view-meta {
+  font-size: 10px;
+  text-align: right;
+}
+
+textarea#comment-content {
+  width: 100%;
+  height: 120px;
+  border-radius: 20px;
+}
+
+div#one-comment {
+  border-style: double;
+  border-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+p#one-comment-content {
+  font-size: 15px;
+  text-align: center;
+}
+p#one-comment-meta {
+  font-size: 10px;
+  text-align: end;
+}
+
+button#delete-comment {
+  float: right;
+  margin-top: -70px;
+  background-color: red;
+  border-color: white;
+  border-radius: 20%;
+}
+button#comment-submit {
+  float: right;
+  border-radius: 20px;
+}
+button#post-delete {
+  margin-top: 200px;
+  float: center;
+  width: 100%;
+  background-color: red;
+  border-radius: 20px;
+}
+
+button#icon-btn {
+  float: center;
+  border-radius: 20px;
+  width: 75px;
+  font-size: 20px;
+}
+button#icon-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+div#err-row {
+  position: relative;
+  top: 20%;
+  left:40%;
+  width: 100%;
+}
+p#err-msg {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  color: red;
+}

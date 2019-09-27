@@ -1,0 +1,31 @@
+#view {
+    font-family: 'Montserrat', sans-serif;
+    background-color: lavender;
+    box-shadow: 10px 10px 5px grey;
+}
+
+#header {
+      
+    float: right;
+    
+        
+    }
+
+ .posts-div {
+        
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black 
+    }
+   
+   #nav-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+   
