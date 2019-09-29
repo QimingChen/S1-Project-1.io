@@ -63,6 +63,7 @@ button#post-switcher-create {
 button#post-switcher-view-posts:hover,
 button#post-switcher-create:hover {
   background-color: white;
+  color: black
 }
 
 input#post-title {
@@ -221,6 +222,7 @@ button#err-btn {
 button#err-btn:hover {
   /* background-color: black; */
   color: white;
+
 }
 
 button#log-out {

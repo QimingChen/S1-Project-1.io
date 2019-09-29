@@ -18,6 +18,14 @@ input  {
     color: red;
     display: none
 }
+#invalid,
+#taken{
+  color: red;
+  display: none;
+  margin-right: 10px;
+  font-size: 15px
+}
+
 
 #header {
     float: right;
@@ -65,7 +73,18 @@ button{
    cursor:pointer;
 
 }
-
+button:hover{
+    
+  background-color: whitesmoke;
+  color: black
+  
+}
+a:hover{
+    
+  background-color: whitesmoke;
+  color: black
+  
+}
 button#delete-comment {
     color: black;
     margin-top: -70px;
@@ -74,6 +93,34 @@ button#delete-comment {
    
   }
   #login{
-    margin-top: -80px;
+    margin-top: -200px;
   }
   
+  .company{
+    padding: 3px;
+    margin-left: 10px;
+    font-size: 33px
+  }
+
+  #subtitle{
+    margin: 30px
+  }
+  #intro{
+    margin-left: 133px;
+
+  }
+
+  #new-acc-create{
+    padding: 10px;
+    margin-left: 8px
+  }
+
+  #new-acc-create:hover{
+    background-color: cadetblue 
+  }
+  #sign-up{
+    display: none
+  }
+  .success-message{
+    margin: 100px
+  }
