@@ -1,0 +1,79 @@
+#view {
+    font-family: 'Montserrat', sans-serif;
+    background-color: lavender;
+  
+}
+
+input  {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 10px 10px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    
+  }
+
+#incorrect{
+    color: red;
+    display: none
+}
+
+#header {
+    float: right;
+    
+}
+
+.posts-div {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 10px;
+    
+    
+ }
+   
+   #nav-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button{
+    
+    background-color: black;
+    border-radius: 20px;
+    color: lavender;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 10px
+    
+}
+.create-new-post{
+    
+   background-color: black;
+   border-radius: 20px;
+   padding:  4px;
+   padding-right: 5px; 
+   padding-left: 5px;
+   margin-bottom : 100px;
+   color : lavender;
+   text-decoration: none !important;
+   cursor:pointer;
+
+}
+
+button#delete-comment {
+    color: black;
+    margin-top: -70px;
+    background-color: red;
+    border-color: white;
+   
+  }
+  #login{
+    margin-top: -80px;
+  }
+  

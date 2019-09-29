@@ -2,8 +2,8 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  font-family: "Muli", sans-serif;
-  background-color: hsl(43, 65%, 86%);
+  font-family: "Montserrat", sans-serif;
+  background-color: lavender;
 }
 
 #nav-bar {
@@ -35,6 +35,10 @@ button#logined-username {
   font-size: 20px;
   text-align: center;
 }
+button#logined-username:hover {
+  background-color: black;
+  color: white;
+}
 
 button#search-submit {
   background-color: black;
@@ -63,7 +67,7 @@ button#profile-edit-button {
   position: relative;
   top: 50px;
   right: 150px;
-  background-color: wheat;
+  background-color: lavender;
   border-radius: 40px;
   color: white;
 }
@@ -75,10 +79,50 @@ div#err-row {
   position: relative;
   top: 20%;
   width: 100%;
+  left: 300px;
 }
 p#err-msg {
   font-size: 40px;
   font-weight: 900;
-  text-align: center;
+  /* text-align: center; */
   color: red;
+}
+
+button#icon-btn {
+  float: center;
+  border-radius: 20px;
+  width: 150px;
+  font-size: 20px;
+}
+button#icon-btn:hover {
+  background-color: black;
+  color: white;
+}
+button#err-btn {
+  float: center;
+  border-radius: 20px;
+  width: 150px;
+  font-size: 20px;
+}
+button#err-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+p#not-login-msg {
+  color: red;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+button#log-out {
+  background-color: white;
+  border-radius: 20px;
+  font-size: 10px;
+  text-align: center;
+}
+button#log-out:hover {
+  background-color: black;
+  color: white;
 }

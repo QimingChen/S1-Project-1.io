@@ -2,8 +2,8 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  font-family: "Muli", sans-serif;
-  background-color: hsl(43, 65%, 86%);
+  font-family: "Montserrat", sans-serif;
+  background-color: lavender;
 }
 
 #nav-bar {
@@ -29,15 +29,15 @@ body {
   display: inline;
 }
 
-button#logined-username{
+button#logined-username {
   background-color: white;
   border-radius: 20px;
   font-size: 20px;
   text-align: center;
 }
-button#logined-username:hover{
+button#logined-username:hover {
   background-color: black;
-  color:white;
+  color: white;
 }
 
 button#search-submit {
@@ -57,7 +57,7 @@ button#post-switcher-create {
   width: 100%;
   background-color: black;
   border-radius: 20px;
-  color: wheat;
+  color: lavender;
   font-size: 30px;
 }
 button#post-switcher-view-posts:hover,
@@ -88,7 +88,7 @@ button#post-submit:hover {
 }
 
 div#post-view {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 40px;
   padding: 40px;
 }
@@ -96,8 +96,8 @@ div#post-view {
 div#list-post {
   border-style: solid;
   border-radius: 10px;
-  border-color: wheat;
-  background-color: white;
+  border-color: lavender;
+  background-color: whitesmoke;
   padding: 10px;
 }
 
@@ -174,7 +174,7 @@ button#post-delete {
 button#icon-btn {
   float: center;
   border-radius: 20px;
-  width: 75px;
+  width: 150px;
   font-size: 20px;
 }
 button#icon-btn:hover {
@@ -185,12 +185,51 @@ button#icon-btn:hover {
 div#err-row {
   position: relative;
   top: 20%;
-  left:40%;
   width: 100%;
+  left: 300px;
 }
 p#err-msg {
   font-size: 40px;
   font-weight: 900;
   text-align: center;
   color: red;
+}
+
+button#icon-btn {
+  float: center;
+  border-radius: 20px;
+  width: 150px;
+  font-size: 20px;
+}
+button#icon-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+p#not-login-msg{
+  color:red;
+  margin-top:20px;
+  font-weight: 900;
+  font-size: 20px;
+}
+button#err-btn {
+  float: center;
+  border-radius: 20px;
+  width: 150px;
+  font-size: 20px;
+}
+button#err-btn:hover {
+  /* background-color: black; */
+  color: white;
+}
+
+button#log-out {
+  background-color: white;
+  border-radius: 20px;
+  font-size: 10px;
+  text-align: center;
+}
+button#log-out:hover {
+  background-color: black;
+  color: white;
 }

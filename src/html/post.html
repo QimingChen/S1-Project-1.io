@@ -4,27 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- customized style-->
+    <link rel="stylesheet" type="text/css" href="../css/post.css" />
     <title>Post</title>
   </head>
-  <body>
-    <div id="nav-bar">
-      <div id="icon"> icon </div>
-      <div id="search">
-        <input id="search-input" />
-        <button id="search-submit">search</button>
+  <body class="container">
+    <div class="row" id="nav-bar">
+      <div class="col" id="icon">
+        <button id="icon-btn" onclick="location.href='./index.html'" type="button">Home</button>
       </div>
-      <div id="form">
-          <input placeholder="username">
-          <input placeholder="password">
-          <button id="login"> LOGIN </button>
-          <a href="#"> register </a>
+      <div class="col" id="search">
+        <!-- <input id="search-input" placeholder="...search" />
+        <button id="search-submit">search</button> -->
+      </div>
+      <div class="col" id="form-to-login">
+        <!-- <input placeholder="username" />
+        <input placeholder="password" />
+        <button id="login">LOGIN</button>
+        <a href="#"> register </a> -->
+        <p id="not-login-msg">NOT LOGGED IN</p>
+      </div>
+      <div class="col" id="form-logined">
+        <button id="logined-username" onclick="location.href='./profile.html'" type="button">username</button>
+        <button id="log-out" type="button">LOG OUT</button>
       </div>
     </div>
-
-    <div id="post-creation">
-      Title: <input id="post-title" placeholder="title">
-      Content: <input id="post-content" placeholder="Please enter the post content">
-      <button id="post-submit"> post </button>
+    <div class="row" id="err-row">
+      <p id="err-msg">Please Log In on</p>
+      <button id="err-btn" onclick="location.href='./index.html'" type="button" style="background-color:red">
+        HOME
+      </button>
+    </div>
+    <div class="row" id="post-switcher">
+      <div class="col">
+        <button id="post-switcher-view-posts">view my previous posts</button>
+      </div>
+      <div class="col">
+        <button id="post-switcher-create">create a new post</button>
+      </div>
+    </div>
+    <div class="row" id="post-creation">
+      <p>Title:</p>
+      <input id="post-title" placeholder="title" />
+      <p>Content:</p>
+      <textarea id="post-content" placeholder="Content"></textarea>
+      <button id="post-submit">post</button>
+    </div>
+    <div class="row" id="posts-list">
+      <div id="list-post">
+        <h3 id="list-post-title">Title</h3>
+        <p id="list-post-content">content</p>
+        <p id="list-post-meta">user id xxx</p>
+        <div id="list-post-comments">
+          <p>comment 1</p>
+          <p>comment 2</p>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="post-view">
+      <div id="post-view-article">
+        <p id="post-view-title">title</p>
+        <p id="post-view-content">content</p>
+        <p id="post-view-meta">meta</p>
+        <div id="post-view-comments">
+          <div id="one-comment">
+            <p id="one-comment-content">comment 1</p>
+            <p id="one-comment-meta">comment meta</p>
+            <button id="delete-comment">delete comment</button>
+          </div>
+        </div>
+        <textarea id="comment-content"></textarea>
+        <button id="comment-submit">comment</button>
+      </div>
+      <div>
+        <button id="post-delete">DELETE POST</button>
+      </div>
     </div>
   </body>
+  <script src="../javascript/thesi-api.js"></script>
+  <script src="../javascript/post.js"></script>
 </html>

@@ -4,47 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <style>
-   
-         </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
     <title>Home Page</title>
   </head>
   <body>
-    <div id="nav-bar">
-      <div id="icon"> icon </div>
-      <div id="search">
-        <input id="search-input" />
-        <button id="search-submit">search</button>
-      </div>
-      <header id="header">
-      <div id="form">
-          <input id = "username" placeholder="email">
-          <input id = "password" type= "password" placeholder="password" >
-          <button id = "login"> LOGIN </button>
-          <a href=""> register </a>
-      </div>
-    </header>
+    <div id="view">
+      <h1>POST-IT</h1>
+      <nav id="nav-bar">
+        <div id="search">
+          <div id="icon"> </div>
+        </div>
+        <header id="header">
+          <div id="login"></div>         
+          <p id= "incorrect" >Username or Password is incorrect</p>
+        </header>
+      </nav>    
+    <section id="main">
+      
+    </section>
 
-      </div>
-    </div>
 
-    <div id="main">
-      <div id="column-left">
-        <div class="post">
-          <p>post 1</p>
-        </div>
-        <div class="post">
-          <p>post 2</p>
-        </div>
-        <div class="post">
-          <p>post 3</p>
-        </div>
-      </div>
-      <div id="column-right">
-        <p> place some latest trending </p>
-      </div>
-    </div>
     <script src = "../javascript/main.js"></script>
+    <script src = "../javascript/main-page-functions.js"></script>
+    <script src = "../javascript/thesi-api.js"></script>
+
+    </div>
   </body>
+
 </html>
