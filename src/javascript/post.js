@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   document.getElementById("post-submit").addEventListener("click", createPostOnClick);
   document.getElementById("comment-submit").addEventListener("click", createCommentOnClick);
   document.getElementById("post-delete").addEventListener("click", deletePostButtonOnClick);
-  document.getElementById("log-out").addEventListener("click", function(){
+  document.getElementById("log-out").addEventListener("click", function() {
     logOut();
     window.location.reload();
   });
@@ -54,7 +54,10 @@ function switchToViewAPost() {
   document.getElementById("post-view-content").innerText = content;
   document.getElementById("post-view-meta").innerText = meta;
   // display comment
-  document.getElementById("post-view-comments").innerHTML = ""; // clean existing content
+  // clean comments first
+  for (let i = 0; i < document.getElementById("post-view-comments").children.length; i++) {
+    document.getElementById("post-view-comments").children[i].innerHTML = "";
+  }
   // post id -> API get comment by post id
   let id = meta.split(" ")[2]; // post id: {id} ==> {id}
   let commentForId = getCommentByPostId(id).then(response => {
@@ -199,7 +202,10 @@ async function createPostOnClick() {
     document.getElementById("post-view-title").innerText = newTitle;
     document.getElementById("post-view-content").innerText = newContent;
     document.getElementById("post-view-meta").innerText = "post id: " + newMeta;
-    document.getElementById("post-view-comments").children[0].innerHTML = "";
+    // clean comments
+    for (let i = 0; i < document.getElementById("post-view-comments").children.length; i++) {
+      document.getElementById("post-view-comments").children[i].innerHTML = "";
+    }
   } catch (err) {
     console.log(err);
   }
