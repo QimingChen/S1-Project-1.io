@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
  */
 function loadPosts(){
 
-    fetch("http://postit2.cfapps.io/post/list", {
+    fetch("https://postit2.cfapps.io/post/list", {
         mode: "cors",
         method: "GET",
         headers: {
@@ -115,7 +115,7 @@ function loadPosts(){
                     
                     // AJAX call per post to display comments using postID in localStorage
 
-                    fetch(`http://postit2.cfapps.io/post/${postID}/comment`,{
+                    fetch(`https://postit2.cfapps.io/post/${postID}/comment`,{
                         method: "get" ,
                         headers: {
                             'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ function loadPosts(){
 
                                 deleteComment.addEventListener("click", () => {
                                  
-                                    fetch(`http://postit2.cfapps.io/comment/${comment.commentId}`,{
+                                    fetch(`https://postit2.cfapps.io/comment/${comment.commentId}`,{
                                         method: "delete",
                                         headers: {
                                             'Content-Type': 'application/json',
@@ -210,7 +210,7 @@ function loadPosts(){
                 if(newComment.length !==0){
                     commentAddedText.textContent = `Comment added`
                 
-                    fetch(`http://postit2.cfapps.io/comment/${postID}`, {
+                    fetch(`https://postit2.cfapps.io/comment/${postID}`, {
                         method : "post",
                         headers: {
                             'Content-Type': 'application/json',

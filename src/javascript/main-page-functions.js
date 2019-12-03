@@ -17,7 +17,7 @@ function loadUser(){
     let emailInput = document.querySelector("#username").value
     let passwordInput = document.querySelector("#password").value
 
-    fetch("http://postit2.cfapps.io/user/login", {
+    fetch("https://postit2.cfapps.io/user/login", {
         method : "post",
         headers: {
             'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ function loadLogin(logInButton){
             createAccountButton.addEventListener("click", ()=>{
                 document.querySelector("#incorrect").style.display = "none"
                
-                fetch(`http://postit2.cfapps.io/user/signup`, {
+                fetch(`https://postit2.cfapps.io/user/signup`, {
                     method: "post",
                     headers: {
                         'Content-Type': 'application/json',
