@@ -28,21 +28,30 @@ document.addEventListener("DOMContentLoaded", function(e) {
  */
 function loadPosts(){
 
-    fetch("http://thesi.generalassemb.ly:8080/post/list", {
-        method: "get"
+    fetch("http://postit2.cfapps.io/post/list", {
+        mode: "cors",
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "*/*",
+            'Cache-Control': "no-cache",
+            'Connection': "keep-alive"
+        }
     })
     .then((response) => {
         return response.json();
     })
+
     //AJAX call to return array of posts
     .then(posts =>{
+        console.log(posts);
         //limit to 25 posts on the page
         posts = posts.slice(0,25)
 
         posts.forEach((post)=>{
             
             //get post id from AJAX call and send it to localStorage
-            let postID = post.id
+            let postID = post.postId
             localStorage.setItem("id", postID)
 
             //Create some DOM elements for each post formatting  
@@ -105,8 +114,13 @@ function loadPosts(){
                 
                     
                     // AJAX call per post to display comments using postID in localStorage
-                    fetch(`http://thesi.generalassemb.ly:8080/post/${postID}/comment`,{
-                        method: "get" 
+
+                    fetch(`http://postit2.cfapps.io/post/${postID}/comment`,{
+                        method: "get" ,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
                     })
                     .then((response) =>{
                         return response.json()
@@ -115,7 +129,6 @@ function loadPosts(){
                         
                         //for each comment for each post do this:
                         comments.forEach(comment =>{
-
                            //create DOM elements for comment content--text & user who posted it 
                             let postComment = document.createElement('p')
                             let whoCommented = document.createElement('h3')
@@ -138,7 +151,7 @@ function loadPosts(){
 
                                 deleteComment.addEventListener("click", () => {
                                  
-                                    fetch(`http://thesi.generalassemb.ly:8080/comment/${comment.id}`,{
+                                    fetch(`http://postit2.cfapps.io/comment/${comment.commentId}`,{
                                         method: "delete",
                                         headers: {
                                             'Content-Type': 'application/json',
@@ -197,17 +210,17 @@ function loadPosts(){
                 if(newComment.length !==0){
                     commentAddedText.textContent = `Comment added`
                 
-                    fetch(`http://thesi.generalassemb.ly:8080/comment/${postID}`, {
+                    fetch(`http://postit2.cfapps.io/comment/${postID}`, {
                         method : "post",
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${localStorage.getItem("sessionToken")}`,
-                            'Accept': 'application/json'
+                            // 'Accept': 'application/json'
+                            'Accept': "*/*",
                         },
                         body: JSON.stringify({
                             text: newComment
                         })
-
                     })
                     .then(response => {
                         return response.json()

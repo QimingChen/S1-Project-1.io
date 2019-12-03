@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   document.getElementById("post-submit").addEventListener("click", createPostOnClick);
   document.getElementById("comment-submit").addEventListener("click", createCommentOnClick);
   document.getElementById("post-delete").addEventListener("click", deletePostButtonOnClick);
-  document.getElementById("log-out").addEventListener("click", function() {
+  document.getElementById("log-out").addEventListener("click", function(){
     logOut();
     window.location.reload();
   });
@@ -54,10 +54,7 @@ function switchToViewAPost() {
   document.getElementById("post-view-content").innerText = content;
   document.getElementById("post-view-meta").innerText = meta;
   // display comment
-  // clean comments first
-  for (let i = 0; i < document.getElementById("post-view-comments").children.length; i++) {
-    document.getElementById("post-view-comments").children[i].innerHTML = "";
-  }
+  document.getElementById("post-view-comments").innerHTML = ""; // clean existing content
   // post id -> API get comment by post id
   let id = meta.split(" ")[2]; // post id: {id} ==> {id}
   let commentForId = getCommentByPostId(id).then(response => {
@@ -146,7 +143,7 @@ function displayUserPosts(data) {
     let newItem = filteredData[i];
     let title = newItem.title;
     let content = newItem.description;
-    let meta = newItem.id;
+    let meta = newItem.postId;
     // construct to html
     let newDiv = document.createElement("div");
     newDiv.setAttribute("id", "list-post");
@@ -191,9 +188,11 @@ async function createPostOnClick() {
     let dscrpt = document.querySelector("#post-content").value;
     // create post to server
     let newPost = await createPost(title, dscrpt);
+    console.log(newPost);
     var newTitle = newPost.title; //h3#list-post-title
     var newContent = newPost.description; //p#list-post-content
-    let newMeta = newPost.id; //p#list-post-meta
+    let newMeta = newPost.postId; //p#list-post-meta
+    console.log(newPost);
     // switch mode to single post mode
     document.getElementById("post-creation").style.display = "none";
     document.getElementById("posts-list").style.display = "none";
@@ -202,10 +201,7 @@ async function createPostOnClick() {
     document.getElementById("post-view-title").innerText = newTitle;
     document.getElementById("post-view-content").innerText = newContent;
     document.getElementById("post-view-meta").innerText = "post id: " + newMeta;
-    // clean comments
-    for (let i = 0; i < document.getElementById("post-view-comments").children.length; i++) {
-      document.getElementById("post-view-comments").children[i].innerHTML = "";
-    }
+    document.getElementById("post-view-comments").children[0].innerHTML = "";
   } catch (err) {
     console.log(err);
   }
@@ -272,6 +268,15 @@ async function deleteCommentButtonOnClick(e) {
 /**
  * delete post button interface (server doesn't support this function right now)
  */
-function deletePostButtonOnClick() {
-  alert("delete comment is not available for this moment");
+async function deletePostButtonOnClick() {
+  // let parentDiv = e.target.parentNode; // the one-comment div
+  // let commentid = parentDiv.children[1].innerText.split(" ")[2];
+  let status = await deleteCommentByCommentId(commentid);
+  if (status.ok === true) {
+    console.log("deleted");
+    // api response confirmed the comment was deleted
+    // parentDiv.parentNode.removeChild(parentDiv);
+  } else {
+    alert("fail to delete post");
+  }
 }

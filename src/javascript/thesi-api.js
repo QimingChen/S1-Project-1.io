@@ -8,14 +8,20 @@
 async function postData(url, data, token = "") {
   var myHeaders = {};
   myHeaders["Content-Type"] = "application/json";
+  myHeaders["Accept"] = "application/json";
   if (token !== "") {
     console.log("post Data: token is " + token);
     myHeaders["Authorization"] = token;
   }
+  console.log("post method");
+  console.log(url);
+  console.log(data);
+  console.log("token is " + token);
+  console.log(myHeaders);
   let response = await fetch(url, {
     method: "POST",
-    mode: "cors",
-    cache: "no-cache",
+    // mode: "no-cors",
+    // cache: "no-cache",
     headers: myHeaders,
     body: JSON.stringify(data),
   });
@@ -31,15 +37,50 @@ async function postData(url, data, token = "") {
 async function getData(url, token = "") {
   var myHeaders = {};
   myHeaders["Content-Type"] = "application/json";
+  myHeaders["Accept"] = "application/json";
   if (token !== "") {
     console.log("post Data: token is " + token);
     myHeaders["Authorization"] = token;
   }
+  console.log("get method");
+  console.log(url);
+  console.log("token is " + token);
+  console.log(myHeaders);
   let response = await fetch(url, {
     method: "GET",
-    mode: "cors",
-    cache: "no-cache",
+    // mode: "cors",
+    // cache: "no-cache",
     headers: myHeaders,
+  });
+  return await response.json();
+}
+
+/**
+ * put request to server end to retrieve data
+ * @param  {string} url [address for request destination]
+ * @param  {string} data [request body]
+ * @param  {string} token [token for user auth]
+ * @return {object} response.json() [object resolved from response]
+ */
+async function putData(url, data, token = "") {
+  var myHeaders = {};
+  myHeaders["Content-Type"] = "application/json";
+  myHeaders["Accept"] = "application/json";
+  if (token !== "") {
+    console.log("put Data: token is " + token);
+    myHeaders["Authorization"] = token;
+  }
+  console.log("put method");
+  console.log(url);
+  console.log(data);
+  console.log("token is " + token);
+  console.log(myHeaders);
+  let response = await fetch(url, {
+    method: "PUT",
+    // mode: "no-cors",
+    // cache: "no-cache",
+    headers: myHeaders,
+    body: JSON.stringify(data),
   });
   return await response.json();
 }
@@ -60,8 +101,6 @@ async function deleteData(url, token = "") {
   }
   let response = await fetch(url, {
     method: "DELETE",
-    mode: "cors",
-    cache: "no-cache",
     headers: myHeaders,
   }).then(response => {
     console.log("delete data response");
@@ -89,7 +128,7 @@ async function signUp(email, pwd, username) {
     throw "Exception from signUp(): argument 'username' incorrect";
   }
   try {
-    let url = "http://thesi.generalassemb.ly:8080/signup";
+    let url = "http://postit2.cfapps.io/user/signup";
     let data = {
       email: email,
       password: pwd,
@@ -169,7 +208,7 @@ async function signUp(email, pwd, username) {
  * @returns {promise object} value [contains array of object for list posts]
  */
 async function listPostsQC() {
-  let url = "http://thesi.generalassemb.ly:8080/post/list";
+  let url = "http://postit2.cfapps.io/post/list";
   try {
     console.log(`list post request: url(${url})`);
     var response = await getData(url).then(value => {
@@ -202,7 +241,7 @@ async function createPost(title, dscrpt) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/post";
+  let url = "http://postit2.cfapps.io/post/";
   let data = {
     title: title,
     description: dscrpt,
@@ -239,7 +278,7 @@ async function createComment(postId, commentContent) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/comment/" + postId;
+  let url = "http://postit2.cfapps.io/comment/" + postId;
   let data = {
     text: commentContent,
   };
@@ -265,7 +304,7 @@ async function createComment(postId, commentContent) {
  * @param {promise object} value [contains array of objects of comments for the target post]
  */
 async function getCommentByPostId(postId) {
-  let url = "http://thesi.generalassemb.ly:8080/post/" + postId + "/comment";
+  let url = "http://postit2.cfapps.io/post/" + postId + "/comment";
   try {
     console.log(`get comment by post id request: url(${url})`);
     var response = await getData(url).then(value => {
@@ -291,7 +330,7 @@ async function getCommentByUser() {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/user/comment";
+  let url = "http://postit2.cfapps.io/user/comment";
   try {
     console.log(`get comment by user request: url(${url})`);
     var response = await getData(url, "Bearer " + token).then(value => {
@@ -319,7 +358,7 @@ async function deletePostByPostId(postid) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/post/" + postid;
+  let url = "http://postit2.cfapps.io/post/" + postid;
   try {
     console.log(`delete post by post id request: url(${url})`);
     var response = await deleteData(url, "Bearer " + token).then(value => {
@@ -347,7 +386,7 @@ async function deleteCommentByCommentId(commentid) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/comment/" + commentid;
+  let url = "http://postit2.cfapps.io/comment/" + commentid;
   try {
     console.log(`delete comment by comment id request: url(${url})`);
     var response = await deleteData(url, "Bearer " + token);
@@ -374,7 +413,7 @@ async function createProfile(alterEmail, mobile, address) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/profile";
+  let url = "http://postit2.cfapps.io/user/profile";
   let data = {
     additionalEmail: alterEmail,
     mobile: mobile,
@@ -406,7 +445,7 @@ async function getProfile() {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/profile";
+  let url = "http://postit2.cfapps.io/user/profile";
   try {
     console.log(`get profile request: url(${url})`);
     var response = await getData(url, "Bearer " + token).then(value => {
@@ -434,13 +473,13 @@ async function updateProfile(mobile) {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/profile";
+  let url = "http://postit2.cfapps.io/user/profile";
   let data = {
     mobile: mobile,
   };
   try {
     console.log(`update profile request: url(${url}) -- data (${JSON.stringify(data)})`);
-    var response = await postData(url, data, "Bearer " + token).then(value => {
+    var response = await putData(url, data, "Bearer " + token).then(value => {
       console.log(value);
       console.log(typeof value);
       return value;
@@ -475,7 +514,7 @@ async function getPostByUser() {
   if (token === null) {
     throw "Exception in createPost(): token not available";
   }
-  let url = "http://thesi.generalassemb.ly:8080/user/post";
+  let url = "http://postit2.cfapps.io/user/post";
   try {
     console.log(`get post by user request: url(${url})`);
     var response = await getData(url, "Bearer " + token).then(value => {

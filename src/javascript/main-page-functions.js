@@ -17,7 +17,7 @@ function loadUser(){
     let emailInput = document.querySelector("#username").value
     let passwordInput = document.querySelector("#password").value
 
-    fetch("http://thesi.generalassemb.ly:8080/login", {
+    fetch("http://postit2.cfapps.io/user/login", {
         method : "post",
         headers: {
             'Content-Type': 'application/json',
@@ -33,10 +33,8 @@ function loadUser(){
         return response.json()
     })
     .then((json) => {
-        
         let token = json.token
         let username = json.username
-        console.log('IM HERE')
        
         if(token!==undefined){
            
@@ -47,7 +45,7 @@ function loadUser(){
             location.reload();
         }
         else{
-            
+            console.log(json.message);
             document.querySelector("#incorrect").style.display = "inline"
             
         }
@@ -98,7 +96,7 @@ function loadLogin(logInButton){
             createAccountButton.addEventListener("click", ()=>{
                 document.querySelector("#incorrect").style.display = "none"
                
-                fetch(`http://thesi.generalassemb.ly:8080/signup`, {
+                fetch(`http://postit2.cfapps.io/user/signup`, {
                     method: "post",
                     headers: {
                         'Content-Type': 'application/json',
@@ -114,25 +112,30 @@ function loadLogin(logInButton){
                     .then(response => {
                         return response.json()
                     })
-                    .then(() => {
-                        
-                        document.querySelector("#login").innerHTML = ""
+                    .then((json) => {
+
+                        if(json.token != undefined){
+                            document.querySelector("#login").innerHTML = ""
                         
 
-                        let successMessage = document.createElement("h1")
-                        successMessage.textContent = "Account successfully created"
-                        successMessage.setAttribute("class", "success-message")
-                        document.querySelector("#login").appendChild(successMessage)
+                            let successMessage = document.createElement("h1")
+                            successMessage.textContent = "Account successfully created"
+                            successMessage.setAttribute("class", "success-message")
+                            document.querySelector("#login").appendChild(successMessage)
+    
+                            let successMessageButton = document.createElement("button")
+                            successMessageButton.textContent = "Login?"
+                            successMessageButton.setAttribute("class", "success-message")
+                            successMessage.appendChild(successMessageButton)
+    
+                            successMessageButton.addEventListener("click", ()=>{
+                                location.reload()
+                            })
 
-                        let successMessageButton = document.createElement("button")
-                        successMessageButton.textContent = "Login?"
-                        successMessageButton.setAttribute("class", "success-message")
-                        successMessage.appendChild(successMessageButton)
+                        }else{
+                            console.log(json.message);
+                        }
 
-                        successMessageButton.addEventListener("click", ()=>{
-                            location.reload()
-                        })
-                        
                     })
                     .catch((json) =>{
                         console.log(json)
