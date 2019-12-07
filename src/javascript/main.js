@@ -151,7 +151,7 @@ function loadPosts(){
 
                                 deleteComment.addEventListener("click", () => {
                                  
-                                    fetch(`https://postit2.cfapps.io/comment/${comment.commentId}`,{
+                                    fetch(`https://postit2.cfapps.io/comment/${comment.id}`,{
                                         method: "delete",
                                         headers: {
                                             'Content-Type': 'application/json',
@@ -227,8 +227,8 @@ function loadPosts(){
                     })
                     //if call is successful, add new comment to backend and onto DOM
                     //clears input field as well
-                    .then( () => {
-                        
+                    .then( (response) => {
+                        console.log(response);
                         commentDiv.style.marginTop = "3px"
                         commentDiv.appendChild(commentAddedText)
                         commentInput.value =""
